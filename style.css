@@ -1,0 +1,51 @@
+body{
+  background-color: #191970;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+}
+
+.bubble {
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  animation: moveBubble 5s infinite;
+  transition: 2s all;
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  z-index: 0;
+}
+
+.bubble:hover {
+  transform:scale(1.5);
+  transform: translate(-50%, -50%);
+}
+
+.hiddenUntilHover {
+  display: none;
+  background-color: aliceblue;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  z-index: 1;
+}
+.hiddenUntilHover:hover{
+  opacity: 1;
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+#reshuffle + #hide {
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  z-index: 2;
+}
