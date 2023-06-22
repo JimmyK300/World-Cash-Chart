@@ -37,14 +37,15 @@ theHeight = document.body.clientHeight;
 theWidth = document.body.clientWidth;
 maxRadius = 0;
 bubblePositions = [];
-if (theHeight >= theWidth){maxRadius=theWidth*0.3}else{maxRadius=theHeight*0.3}
+if (theHeight >= theWidth){maxRadius=theWidth*0.4}else{maxRadius=theHeight*0.4}
 fetchData().then(data => {
   data2 = data;
   base = data.btc[topDivider];
   //console.log(base);
-  createBubble(getRadius(data.btc[topDivider]), data.curr[topDivider], data.rank[topDivider] , theHeight*0.5, theWidth*0.5);
+  position = RandomizeSpawn(getRadius(data.btc[topDivider]));
+  createBubble(getRadius(data.btc[topDivider]), data.curr[topDivider], data.rank[topDivider] , position[0], position[1]);
   createInfo(data.rank[topDivider], data.country[topDivider], data.btc[topDivider], data.tot[topDivider]);
-  bubblePositions.push([theHeight*0.5, theWidth*0.5])
+  bubblePositions.push([position[0], position[1]])
   for (let i = topDivider+1; i < data.rank.length; i++) {  
     getNonOverlappingPosition(i, data);  
     createBubble(getRadius(data.btc[i]), data.curr[i], data.rank[i], bubblePositions[i][0], bubblePositions[i][1]);
@@ -130,8 +131,8 @@ function RandomizeSpawn(z){
   if (bodyheight*percent < z) {
     possibley = bodyheight/2;
   }
-  percentx = Math.random()*(possiblex/bodywidth*97) + (1-possiblex/bodywidth)*50;
-  percenty = Math.random()*(possibley/bodyheight*percent*97) + (1-possibley/bodyheight)*50 + 100-percent*100;
+  percentx = Math.random()*(possiblex/bodywidth*99) + (1-possiblex/bodywidth)*50;
+  percenty = Math.random()*(possibley/bodyheight*percent*90) + (1-possibley/bodyheight)*50 + 100-percent*100 + 7;
   return [percenty*theHeight/100,percentx*theWidth/100];
   
 }
@@ -256,9 +257,11 @@ GetDistance = function (x1, y1, x2, y2) {
 
 function reshuffle(data){
   var bubbles = document.getElementsByClassName("bubble");
-  bubbles[0].style.top = theHeight*0.5 + "px";
-  bubbles[0].style.left = theWidth*0.5 + "px";
-  bubblePositions.push([theHeight*0.5, theWidth*0.5]);
+  radius = getRadius(data.btc[topDivider]);
+  position = RandomizeSpawn(radius);
+  bubbles[topDivider].style.top = position[0] + "px";
+  bubbles[topDivider].style.left = position[1] + "px";
+  bubblePositions.push([position[0], position[1]]);
   for (let i = 1; i < data.rank.length; i++) {  
     getNonOverlappingPosition(i, data);  
     bubbles[i].style.top = bubblePositions[i][0] + "px";
@@ -272,13 +275,14 @@ function hidePart2(data){
   //console.log("base: " + base);
   var bubbles = document.getElementsByClassName("bubble");
   radius = getRadius(data.btc[topDivider]);
-  bubbles[topDivider].style.top = theHeight*0.5 + "px";
-  bubbles[topDivider].style.left = theWidth*0.5 + "px";
+  position = RandomizeSpawn(radius);
+  bubbles[topDivider].style.top = position[0] + "px";
+  bubbles[topDivider].style.left = position[1] + "px";
   bubbles[topDivider].style.lineHeight = radius*2 + 'px'; 
   bubbles[topDivider].style.width = radius*2 + "px";
   bubbles[topDivider].style.height = radius*2 + "px";
   bubbles[topDivider].style.fontSize = radius/2 + "px";
-  bubblePositions.push([theHeight*0.5, theWidth*0.5]);
+  bubblePositions.push([position[0], position[1]]);
   for (let i = topDivider+1; i < data.rank.length; i++) {  
     getNonOverlappingPosition(i-topDivider, data);
     radius = getRadius(data.btc[i]);  
