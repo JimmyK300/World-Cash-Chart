@@ -6,7 +6,7 @@ function fetchData() {
   var sat = [];
   var tot = [];
 
-  return fetch('data2.txt')
+  return fetch('data.txt')
     .then(response => response.text())
     .then(data => {
       data = data.trim().split(/\r?\n/);
