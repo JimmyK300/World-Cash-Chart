@@ -1,8 +1,9 @@
 body{
   background-color: #191970;
   position: absolute;
-  height: 100vh;
-  width: 100vw;
+  height: 98.5vh;
+  width: 99vw;
+  overflow: hidden;
 }
 
 .bubble {
@@ -48,4 +49,8 @@ body{
   -webkit-user-select: none;
   -moz-user-select: none;
   z-index: 2;
+}
+#hide {
+  position: absolute;
+  right: 0;
 }
