@@ -55,15 +55,16 @@ body{
   font: bold;
   justify-content: center;
   line-height: 50%;
-  font-size: calc(12pt + 0.6vw);
+  font-size: calc(14pt + 0.6vw);
   width: 100pt;
-  height: 35pt;
+  height: 7vh;
   position: absolute;
   border-radius: 10pt;
   border: 0;
   background-color:   rgb(162, 0, 255);
   color: rgb(255, 255, 255);
   min-width: calc(60px + 2vw + 10mm);
+  max-height: 100pt;
 }
 
 #hide {
