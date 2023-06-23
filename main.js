@@ -87,8 +87,30 @@ function createInfo(rank, country, btc, tot,){
   var mydiv = document.getElementById('demo');
   info.className = "hiddenUntilHover";
   info.id = rank + 'info';
-  info.innerHTML = "Rank: " + rank + "<br>" + "Country: " + country + "<br>" + "BTC: " + btc + "<br>" + "Total: " + tot;
+  info.innerHTML = "Rank: " + rank + "<br>" + "Currency: " + country + "<br>" + "Total: " + getSmallerNumber(tot) + "<br>" +  "BTC: " + getSmallerNumber(btc);
   document.body.appendChild(info);
+}
+
+function getSmallerNumber(num){
+  if (num >= 1000000000000000){
+    return formatNumber((num/1000000000000000))+ "Quadrillion";
+  } else if (num >= 1000000000000){
+  return formatNumber((num/1000000000000)) + "T";
+  } else if (num >= 1000000000){
+    return formatNumber((num/1000000000)) + "B";
+  } else if (num >= 1000000){
+    return formatNumber((num/1000000)) + "M";
+  }else{
+    return num;
+  }
+}
+
+function formatNumber(num) {
+  let roundedNum = parseFloat(num.toFixed(2)).toString().replace(/(\.[0-9]*?)0+$/, "$1");
+  if (roundedNum.endsWith(".")) {
+    roundedNum = roundedNum.slice(0, -1);
+  }
+  return roundedNum;
 }
 
 moveinfo = function(rank){
@@ -132,7 +154,7 @@ function RandomizeSpawn(z){
     possibley = bodyheight/2;
   }
   percentx = Math.random()*(possiblex/bodywidth*99) + (1-possiblex/bodywidth)*50;
-  percenty = Math.random()*(possibley/bodyheight*percent*90) + (1-possibley/bodyheight)*50 + 100-percent*100 + 7;
+  percenty = Math.random()*(possibley/bodyheight*percent*97) + (1-possibley/bodyheight)*50 + 100-percent*100;
   return [percenty*theHeight/100,percentx*theWidth/100];
   
 }
