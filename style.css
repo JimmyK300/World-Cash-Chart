@@ -88,13 +88,13 @@ body{
   bottom: 7.5vh;
   right: 0;
   background-color: white;
-  height: 50vh;
-  width: 40vw;
+  height: 300pt;
+  width: 230pt;
   border-radius: 10px;
   min-width: 200px;
-  min-height: 400px;
+  min-height: 400px; 
   display: none;
-  max-width: 300px;
+
   z-index: 3;
 }
 
