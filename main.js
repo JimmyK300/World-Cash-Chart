@@ -321,12 +321,12 @@ function hidePart2(data){
 function openForm(){
   var change = document.getElementById("donation");
   var tick;
-  if (change.textContent == "Donate ??") {tick = true;} else {tick = false;}
+  if (change.textContent == "About") {tick = true;} else {tick = false;}
   if (tick == true){
     change.textContent = "Close";
     document.getElementById("donationForm").style.display = "block";
   }else{
-    change.textContent = "Donate ??";
+    change.textContent = "About";
     document.getElementById("donationForm").style.display = "none";
   }
 }
