@@ -318,4 +318,21 @@ function hidePart2(data){
   //console.log(bubblePositions);
   bubblePositions= [];
 }
-//set base to top divider and just change top didider
+function openForm(){
+  var change = document.getElementById("donation");
+  var tick;
+  if (change.textContent == "Donate ??") {tick = true;} else {tick = false;}
+  if (tick == true){
+    change.textContent = "Close";
+    document.getElementById("donationForm").style.display = "block";
+  }else{
+    change.textContent = "Donate ??";
+    document.getElementById("donationForm").style.display = "none";
+  }
+}
+
+function copyLink() {
+
+  navigator.clipboard.writeText("ecash:qzzj6ka5vc8gxehrastpgq3hfv865nam7s0dw59228");
+  alert("Copied the link: ecash:qzzj6ka5vc8gxehrastpgq3hfv865nam7s0dw59228");
+}

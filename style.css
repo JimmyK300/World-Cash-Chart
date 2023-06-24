@@ -31,11 +31,13 @@ body{
 
 .hiddenUntilHover {
   display: none;
-  background-color: aliceblue;
+  background-color: rgb(255, 255, 255);
   position: absolute;
   top: -9999px;
   left: -9999px;
   z-index: 1;
+  border-radius: 7px;
+  padding: 7px;
 }
 .hiddenUntilHover:hover{
   opacity: 1;
@@ -46,7 +48,7 @@ body{
 }
 
 
-#reshuffle, #hide {
+#reshuffle, #hide, #donation {
   cursor: default;
   user-select: none;
   -webkit-user-select: none;
@@ -57,7 +59,7 @@ body{
   line-height: 50%;
   font-size: calc(14pt + 0.6vw);
   width: 100pt;
-  height: 7vh;
+  height: 7.5vh;
   position: absolute;
   border-radius: 10pt;
   border: 0;
@@ -72,3 +74,69 @@ body{
   width: 120pt;
   min-width: calc(60px + 2vw + 10mm);
 }
+
+#donation {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 120pt;
+  min-width: calc(60px + 2vw + 10mm);
+
+}
+
+#donationForm {
+  position: absolute;
+  bottom: 7.5vh;
+  right: 0;
+  background-color: white;
+  height: 50vh;
+  width: 40vw;
+  border-radius: 10px;
+  min-width: 200px;
+  min-height: 400px;
+  display: none;
+  max-width: 300px;
+  z-index: 3;
+}
+
+/* #image {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 25%;
+  width: 25%;
+} */
+img {
+  max-width: 50%;
+  max-height: 50%; 
+  min-height: 200px;
+  min-width: 200px;
+  height: 200px;
+  width: auto;
+  position: absolute;
+  display: block;
+  justify-self: center;
+}
+p{
+  justify-content: center;
+  padding: 5px;
+  border: 1px solid lightgray;
+  border-radius: 7px;
+  display: flex;
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+#paragraph {
+  justify-content: center;
+  width: 100%; 
+  display: grid; 
+}
+
+#containerImg {
+  display: grid;
+}
+
+
